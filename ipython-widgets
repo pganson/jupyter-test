@@ -2,38 +2,9 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "98eb18046476452196476620af8ace8c",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "IntSlider(value=0)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    },
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "494d64cf434b46f4b7dbced47d419a3a",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "HelloWidget()"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "import ipywidgets as widgets\n",
     "from IPython.display import display\n",
@@ -54,24 +25,9 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "278a2da5511644bc982676a740039fb9",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "HelloWidget()"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "h = HelloWidget()\n",
     "h"
@@ -79,72 +35,18 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "{\n",
-      "  \"shell_port\": 60623,\n",
-      "  \"iopub_port\": 59229,\n",
-      "  \"stdin_port\": 41643,\n",
-      "  \"control_port\": 54819,\n",
-      "  \"hb_port\": 42747,\n",
-      "  \"ip\": \"127.0.0.1\",\n",
-      "  \"key\": \"b8bba464-be234ea420e21c44dd70c275\",\n",
-      "  \"transport\": \"tcp\",\n",
-      "  \"signature_scheme\": \"hmac-sha256\",\n",
-      "  \"kernel_name\": \"\"\n",
-      "}\n",
-      "\n",
-      "Paste the above JSON into a file, and connect with:\n",
-      "    $> jupyter <app> --existing <file>\n",
-      "or, if you are local, you can connect with just:\n",
-      "    $> jupyter <app> --existing kernel-5bd48f20-b501-4b76-bf2b-e874248c3d2c.json\n",
-      "or even just:\n",
-      "    $> jupyter <app> --existing\n",
-      "if this is the most recent Jupyter kernel you have started.\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "%connect_info"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "{\n",
-      "  \"shell_port\": 60623,\n",
-      "  \"iopub_port\": 59229,\n",
-      "  \"stdin_port\": 41643,\n",
-      "  \"control_port\": 54819,\n",
-      "  \"hb_port\": 42747,\n",
-      "  \"ip\": \"127.0.0.1\",\n",
-      "  \"key\": \"b8bba464-be234ea420e21c44dd70c275\",\n",
-      "  \"transport\": \"tcp\",\n",
-      "  \"signature_scheme\": \"hmac-sha256\",\n",
-      "  \"kernel_name\": \"\"\n",
-      "}\n",
-      "\n",
-      "Paste the above JSON into a file, and connect with:\n",
-      "    $> jupyter <app> --existing <file>\n",
-      "or, if you are local, you can connect with just:\n",
-      "    $> jupyter <app> --existing kernel-5bd48f20-b501-4b76-bf2b-e874248c3d2c.json\n",
-      "or even just:\n",
-      "    $> jupyter <app> --existing\n",
-      "if this is the most recent Jupyter kernel you have started.\n"
-     ]
-    }
-   ],
+   "outputs": [],
    "source": [
     "%qtconsole\n",
     "%connect_info"
@@ -152,28 +54,49 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": null,
    "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.jupyter.widget-view+json": {
-       "model_id": "e88d2d1d30ad465595e5b76bc9e881c3",
-       "version_major": 2,
-       "version_minor": 0
-      },
-      "text/plain": [
-       "IntSlider(value=0)"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
+   "outputs": [],
    "source": [
     "from IPython.display import display\n",
     "w = widgets.IntSlider()\n",
     "display(w)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# from ipywidgets import Button, Layout, ButtonStyle, Box\n",
+    "# from ipywidgets import Button, GridBox, Layout, ButtonStyle\n",
+    "from ipywidgets import *\n",
+    "\n",
+    "header  = Button(description='Header',\n",
+    "                 layout=Layout(width='auto', grid_area='header'),\n",
+    "                 style=ButtonStyle(button_color='lightblue'))\n",
+    "main    = Button(description='Main',\n",
+    "                 layout=Layout(width='auto', grid_area='main'),\n",
+    "                 style=ButtonStyle(button_color='moccasin'))\n",
+    "sidebar = Button(description='Sidebar',\n",
+    "                 layout=Layout(width='auto', grid_area='sidebar'),\n",
+    "                 style=ButtonStyle(button_color='salmon'))\n",
+    "footer  = Button(description='Footer',\n",
+    "                 layout=Layout(width='auto', grid_area='footer'),\n",
+    "                 style=ButtonStyle(button_color='olive'))\n",
+    "\n",
+    "GridBox(children=[header, main, sidebar, footer],\n",
+    "        layout=Layout(\n",
+    "            width='50%',\n",
+    "            grid_template_rows='auto auto auto',\n",
+    "            grid_template_columns='25% 25% 25% 25%',\n",
+    "            grid_template_areas='''\n",
+    "            \"header header header header\"\n",
+    "            \"main main . sidebar \"\n",
+    "            \"footer footer footer footer\"\n",
+    "            ''')\n",
+    "       )"
    ]
   },
   {
