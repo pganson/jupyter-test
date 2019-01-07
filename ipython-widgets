@@ -96,7 +96,62 @@
     "            \"main main . sidebar \"\n",
     "            \"footer footer footer footer\"\n",
     "            ''')\n",
-    "       )"
+    "       )\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from ipywidgets import Button, ButtonStyle\n",
+    "\n",
+    "butt  = Button(description='Header',\n",
+    "                 layout=Layout(width='auto', grid_area='header'),\n",
+    "                 style=ButtonStyle(button_color='red'))\n",
+    "\n",
+    "display(butt)\n",
+    "\n",
+    "def on_button_clicked(b):\n",
+    "    print(\"Button clicked.\")\n",
+    "\n",
+    "butt.on_click(on_button_clicked)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from ipywidgets import Layout, Button, Box, FloatText, Textarea, Dropdown, Label, IntSlider\n",
+    "\n",
+    "form_item_layout = Layout(\n",
+    "    display='flex',\n",
+    "    flex_flow='row',\n",
+    "    justify_content='space-between'\n",
+    ")\n",
+    "\n",
+    "form_items = [\n",
+    "    Box([Label(value='Age of the captain'), IntSlider(min=40, max=60)], layout=form_item_layout),\n",
+    "    Box([Label(value='Egg style'),\n",
+    "         Dropdown(options=['Scrambled', 'Sunny side up', 'Over easy'])], layout=form_item_layout),\n",
+    "    Box([Label(value='Ship size'),\n",
+    "         FloatText()], layout=form_item_layout),\n",
+    "    Box([Label(value='Information'),\n",
+    "         Textarea()], layout=form_item_layout)\n",
+    "]\n",
+    "\n",
+    "form = Box(form_items, layout=Layout(\n",
+    "    display='flex',\n",
+    "    flex_flow='column',\n",
+    "    border='solid 2px',\n",
+    "    align_items='stretch',\n",
+    "    width='50%'\n",
+    "))\n",
+    "form"
    ]
   },
   {
