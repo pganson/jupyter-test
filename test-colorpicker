@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -12,34 +12,227 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 17,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "ce5676292c894ef09a122be0b10580c6",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "ColorPicker(value='red', concise=True, description='bg color')"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
    "source": [
     "cp = widgets.ColorPicker(\n",
-    "    concise=False,\n",
-    "    description='Pick a color',\n",
-    "    value='blue',\n",
+    "    concise=True,\n",
+    "    description='bg color',\n",
+    "    value='red',\n",
     "    disabled=False\n",
     ")\n",
     "\n",
-    "# display(cp)\n",
-    "# print(cp.value)\n",
-    "\n",
-    "color = cp.value\n",
-    "print(\"color: %s\" % color)"
+    "display(cp)"
    ]
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 34,
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'_trait_values': {'_model_module': '@jupyter-widgets/controls', '_model_module_version': '1.2.0', '_model_name': 'ColorPickerModel', '_view_count': None, '_view_module': '@jupyter-widgets/controls', '_view_module_version': '1.2.0', '_view_name': 'ColorPickerView', 'concise': True, 'description': 'bg color', 'disabled': False, 'value': '#1fd7e0', 'comm': <ipykernel.comm.comm.Comm object at 0x7fb1c03b6668>, 'keys': ['_dom_classes', '_model_module', '_model_module_version', '_model_name', '_view_count', '_view_module', '_view_module_version', '_view_name', 'concise', 'description', 'disabled', 'layout', 'style', 'value'], '_dom_classes': (), 'layout': Layout(), 'style': DescriptionStyle(), '_display_callbacks': <ipywidgets.widgets.widget.CallbackDispatcher object at 0x7fb1c03b67f0>, '_property_lock': {}}, '_trait_notifiers': {'comm': {'change': [<traitlets.traitlets.ObserveHandler object at 0x7fb1c0501588>]}}, '_trait_validators': {}, '_cross_validation_lock': False, '_model_id': 'ce5676292c894ef09a122be0b10580c6'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "# display(cp)\n",
+    "# print(cp.value)\n",
+    "\n",
+    "print(cp.__dict__)\n",
+    "\n",
+    "# color = cp.value\n",
+    "# print(\"color: %s\" % color)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "'ColorPicker' object has no attribute 'on_change'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-25-6f3e4a9e2a27>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      2\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"color picked: %s\"\u001b[0m \u001b[0;34m%\u001b[0m \u001b[0mcp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mvalue\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0mcp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mon_change\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mon_color_picked\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m: 'ColorPicker' object has no attribute 'on_change'"
+     ]
+    }
+   ],
    "source": [
     "def on_color_picked(cp):\n",
-    "    print(\"color picked.\")\n",
+    "    print(\"color picked: %s\" % cp.value)\n",
     "\n",
-    "cp.on_click(on_color_picked)"
+    "cp.on_change(on_color_picked)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "AttributeError",
+     "evalue": "'ColorPicker' object has no attribute 'on_value_change'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m                            Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-3-9e9091ead9e2>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m\u001b[0m\n\u001b[1;32m      2\u001b[0m     \u001b[0;31m# print(change['new'])\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      3\u001b[0m     \u001b[0mprint\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"change argument: %s\"\u001b[0m \u001b[0;34m%\u001b[0m \u001b[0mchange\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 4\u001b[0;31m \u001b[0mcp\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mon_value_change\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcp_on_color_picked\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mAttributeError\u001b[0m: 'ColorPicker' object has no attribute 'on_value_change'"
+     ]
+    }
+   ],
+   "source": [
+    "def cp_on_value_change(change):\n",
+    "    # print(change['new'])\n",
+    "    print(\"change argument: %s\" % change)\n",
+    "cp.on_value_change(cp_on_color_picked)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "color picked: #46c738\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"color picked: %s\" % cp.value)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "007159f5dd5749c5a4cd71ef234fbdeb",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "IntSlider(value=7, continuous_update=False, description='Test:', max=10, readout=False)"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "intslider = widgets.IntSlider(value=7, \n",
+    "                       min=0,     \n",
+    "                       max=10,     \n",
+    "                       step=1,     \n",
+    "                       description='Test:',     \n",
+    "                       disabled=False,     \n",
+    "                       continuous_update=False, \n",
+    "                       orientation='horizontal', \n",
+    "                       readout=False,\n",
+    "                       readout_format='d'\n",
+    ")\n",
+    "\n",
+    "display(intslider)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.jupyter.widget-view+json": {
+       "model_id": "e0fb6741f6064769bff95a8c80e40b13",
+       "version_major": 2,
+       "version_minor": 0
+      },
+      "text/plain": [
+       "IntSlider(value=7, continuous_update=False, description='Test2:', max=10, orientation='vertical', readout=Fals…"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "intslider2 = widgets.IntSlider(value=7, \n",
+    "                       min=0,     \n",
+    "                       max=10,     \n",
+    "                       step=1,     \n",
+    "                       description='Test2:',     \n",
+    "                       disabled=False,     \n",
+    "                       continuous_update=False, \n",
+    "                       orientation='vertical', \n",
+    "                       readout=False,\n",
+    "                       readout_format='d'\n",
+    ")\n",
+    "\n",
+    "display(intslider2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 32,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "slider value (0, 10): 5\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"slider value (%s, %s): %s\" % (intslider.min, intslider.max, intslider.value))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "intslider: {'_trait_values': {'_model_module': '@jupyter-widgets/controls', '_model_module_version': '1.2.0', '_model_name': 'IntSliderModel', '_view_count': None, '_view_module': '@jupyter-widgets/controls', '_view_module_version': '1.2.0', '_view_name': 'IntSliderView', 'continuous_update': False, 'description': 'Test:', 'disabled': False, 'max': 10, 'min': 0, 'orientation': 'horizontal', 'readout': False, 'readout_format': 'd', 'step': 1, 'value': 4, 'comm': <ipykernel.comm.comm.Comm object at 0x7fb1c03b6c88>, 'keys': ['_dom_classes', '_model_module', '_model_module_version', '_model_name', '_view_count', '_view_module', '_view_module_version', '_view_name', 'continuous_update', 'description', 'disabled', 'layout', 'max', 'min', 'orientation', 'readout', 'readout_format', 'step', 'style', 'value'], '_dom_classes': (), 'layout': Layout(), 'style': SliderStyle(), '_display_callbacks': <ipywidgets.widgets.widget.CallbackDispatcher object at 0x7fb1c03b6cf8>, '_property_lock': {}}, '_trait_notifiers': {'comm': {'change': [<traitlets.traitlets.ObserveHandler object at 0x7fb1c0501588>]}}, '_trait_validators': {'max': <traitlets.traitlets.ValidateHandler object at 0x7fb1c04b9208>, 'min': <traitlets.traitlets.ValidateHandler object at 0x7fb1c04b9198>, 'value': <traitlets.traitlets.ValidateHandler object at 0x7fb1c04b9128>}, '_cross_validation_lock': False, '_model_id': '007159f5dd5749c5a4cd71ef234fbdeb'}\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(\"intslider:\", intslider.__dict__)"
    ]
   },
   {
